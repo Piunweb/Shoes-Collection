@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body{
+            background-image: linear-gradient(to top, black , whitesmoke);
+            height: 200vh;
+        }
+        .container{
+            height: auto;
+        }
+        li{
+            list-style: none;
+            background-color: black;
+            color: whitesmoke;
+            font-weight: bold;
+            border: 1px solid whitesmoke;
+            border-radius: 4px;
+        }
+        img{
+            height: 200px;
+            transition: 1s;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="d-flex justify-content-center align-items-center mt-3">Shoes Collection 2023</h1>
+            <div class="pics d-flex justify-content-center align-items-center">
+                <ul class="col-12 d-flex m-1 p-4 justify-content-center">
+                    <li class="px-4 py-1" data-shoes="shoe1">Classic</li>
+                    <li class="px-4 py-1" data-shoes="shoe2">Sport</li>
+                    <li class="px-4 py-1" data-shoes="shoe3">HighHeels</li>
+                    <li class="px-4 py-1" data-shoes="shoe4">Casual</li>
+                    <li class="px-4 py-1" data-shoes="all">All</li>
+                </ul>
+            </div>
+            <div id="show" class=" d-flex justify-content-center align-items-center flex-wrap">
+
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const x= ['class1.jpg', 'class2.jpg', 'class3.jpg', 'class4.jpg', 'class5.jpg']
+    const y= ['sport1.jpg', 'sport2.jpg', 'spor3.jpg', 'sport4.jpg', 'sport5.jpg']
+    const z= ['high6.jpg', 'high2.jpg', 'high3.jpg', 'high4.jpg', 'high5.jpg']
+    const t= ['cas1.jpg', 'cas2.jpg', 'cas7.jpg', 'cas4.jpg', 'cas6.jpg']
+    const p= x.concat(y, z, t)
+    let _show = document.getElementById('show')
+     let _li = document.querySelectorAll('ul>li')
+        _li.forEach(function(val){
+            val.addEventListener('click', function(){
+                temp = this.getAttribute('data-shoes')
+                _show.innerHTML=''
+                if(temp == 'shoe1'){
+                    x.map(function(val){
+                        _show.innerHTML+=`
+                            <img src='img/${val}' class='col-3 m-2 border border-2'>
+                        `
+                    })
+                }else if(temp == 'shoe2'){
+                    y.map(function(val){
+                        _show.innerHTML+=`
+                            <img src='img/${val}' class='col-3 m-2 border border-2'>
+                        `
+                    })
+                }else if(temp == 'shoe3'){
+                    z.map(function(val){
+                        _show.innerHTML+=`
+                            <img src='img/${val}' class='col-3 m-2 border border-2'>
+                        `
+                    })
+                }else if(temp == 'shoe4'){
+                    t.map(function(val){
+                        _show.innerHTML+=`
+                            <img src='img/${val}' class='col-3 m-2 border border-2'>
+                        `
+                    })
+                }else{
+                    p.map(function(val){
+                        _show.innerHTML+=`
+                            <img src='img/${val}' class='col-2 m-2 border border-2'>
+                        `
+                    })
+                }
+
+
+
+            })
+        })
+</script>
+</html>
